@@ -583,9 +583,9 @@ class MonthViewState<T extends Object?> extends State<MonthView<T>> {
     isInMonth,
     hideDaysNotInMonth,
   ) {
+    final bgColor = Theme.of(context).canvasColor;
+    final bgColorOff = Theme.of(context).highlightColor;
     if (hideDaysNotInMonth) {
-      final bgColor = Theme.of(context).canvasColor;
-      final bgColorOff = Theme.of(context).highlightColor;
       return FilledCell<T>(
         date: date,
         shouldHighlight: isToday,
@@ -605,7 +605,7 @@ class MonthViewState<T extends Object?> extends State<MonthView<T>> {
     return FilledCell<T>(
       date: date,
       shouldHighlight: isToday,
-      backgroundColor: isInMonth ? Constants.white : Constants.offWhite,
+      backgroundColor: isInMonth ? bgColor : bgColorOff,
       events: events,
       onTileTap: widget.onEventTap,
       onTileLongTap: widget.onEventLongTap,
